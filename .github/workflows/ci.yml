@@ -55,7 +55,7 @@ jobs:
 
     - name: Test Docker image
       run: |
-        docker run --rm -i ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest < sample.csv > docker_test_output.csv
+        docker run --rm -i ${{ env.REGISTRY }}/${{ env.IMAGE_REPOSITORY }}:latest < sample.csv > docker_test_output.csv
         if [ -s docker_test_output.csv ]; then
           echo "✅ Docker image works correctly"
           head -5 docker_test_output.csv
