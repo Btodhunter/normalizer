@@ -8,6 +8,7 @@ on:
 
 env:
   REGISTRY: ghcr.io
+  IMAGE_REPOSITORY: btodhunter/normalizer
 
 jobs:
   docker:
@@ -29,10 +30,6 @@ jobs:
         registry: ${{ env.REGISTRY }}
         username: ${{ github.actor }}
         password: ${{ secrets.GITHUB_TOKEN }}
-
-    - id: read-docker-image-identifiers
-      name: Read Docker Image Identifiers
-      run: echo ::set-env name=IMAGE_REPOSITORY::$(echo ${{ github.repository }} | tr '[:upper:]' '[:lower:]')
 
     - name: Extract metadata
       id: meta
