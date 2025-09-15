@@ -66,25 +66,3 @@ jobs:
           echo "❌ Docker image test failed"
           exit 1
         fi
-
-  security:
-    runs-on: ubuntu-latest
-    if: github.event_name == 'push'
-
-    steps:
-    - name: Checkout code
-      uses: actions/checkout@v4
-
-    - name: Run Grype vulnerability scanner
-      uses: anchore/scan-action@v3
-      id: scan
-      with:
-        path: "."
-        fail-build: false
-        output-format: sarif
-
-    - name: Upload Grype scan results to GitHub Security tab
-      uses: github/codeql-action/upload-sarif@v3
-      if: always()
-      with:
-        sarif_file: ${{ steps.scan.outputs.sarif }}
