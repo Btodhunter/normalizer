@@ -10,13 +10,13 @@ Simple Python CSV normalization tool that reads from stdin and outputs normalize
 **Docker Usage:**
 ```bash
 # Build the Docker image
-docker build -t csv-normalizer .
+docker build -t normalizer .
 
 # Run with input/output redirection
-docker run -i csv-normalizer < input.csv > output.csv
+docker run -i normalizer < input.csv > output.csv
 
 # Or with stdin pipe
-cat input.csv | docker run -i csv-normalizer > output.csv
+cat input.csv | docker run -i normalizer > output.csv
 ```
 
 **Normalizations performed:**
