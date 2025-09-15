@@ -1,5 +1,12 @@
 FROM python:3.13-slim
 
+# Set environment variables for the timezone
+ENV TZ=America/Los_Angeles
+ENV DEBIAN_FRONTEND=noninteractive
+
+# Install the tzdata package
+RUN apt-get update && apt-get install -y tzdata && rm -rf /var/lib/apt/lists/*
+
 # Set working directory
 WORKDIR /app
 
