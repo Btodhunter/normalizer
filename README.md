@@ -1,4 +1,4 @@
-# CSV Processing Tools
+# Normalizer
 
 Simple Python CSV normalization tool that reads from stdin and outputs normalized CSV to stdout.
 
